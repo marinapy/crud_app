@@ -11,7 +11,7 @@ with open(csv_file_path, "r") as csv_file:
     reader = csv.DictReader(csv_file)
     for row in reader:
         products.append(row)
-        print(row["id"], row["name"])
+        #print(row["id"], row["name"])
 
 
 #menu = """
@@ -28,12 +28,12 @@ with open(csv_file_path, "r") as csv_file:
 
 #""".format(len(products))
 
-#other_path = "data/product.csv"
-#with open(csv_file_path, "w") as csv_file:
-    #writer = csv.DictWriter(csv_file, fieldnames=["id", "name", "aisle", "department", "price"])
-    #writer.writeheader() # uses fieldnames set above
-    #for product in products:
-        #writer.writerow(product)
+other_path = "/Users/mtereo/Desktop/crud_app/data/other_product.csv"
+with open(other_path, "w") as csv_file:
+    writer = csv.DictWriter(csv_file, fieldnames=["id", "name", "aisle", "department", "price"])
+    writer.writeheader() # uses fieldnames set above
+    for product in products:
+        writer.writerow(product)
 
 #chosen_operation = input(menu)
 #chosen_operation = chosen_operation.title()
