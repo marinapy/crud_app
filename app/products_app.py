@@ -28,8 +28,8 @@ with open(csv_file_path, "r") as csv_file:
 
 #""".format(len(products))
 
-other_path = "/Users/mtereo/Desktop/crud_app/data/other_product.csv"
-with open(other_path, "w") as csv_file:
+csv_file_path = "/Users/mtereo/Desktop/crud_app/data/product.csv"
+with open(csv_file_path, "w") as csv_file:
     writer = csv.DictWriter(csv_file, fieldnames=["id", "name", "aisle", "department", "price"])
     writer.writeheader() # uses fieldnames set above
     for product in products:
