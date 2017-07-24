@@ -14,17 +14,17 @@ with open(csv_file_path, "r") as csv_file:
         #print(row["id"], row["name"])
 
 
-#menu = """
+menu = """
 
-#Hi.
+Hi.
 
-#Welcome to the prodcuts app.
+Welcome to the products app!
 
-#There are 100 products.
+There are 100 products.
 
-#Available operations: 'List', 'Show', 'Create', 'Update'
+Available operations: 'List', 'Show', 'Create', 'Update'
 
-#Please choose an operation:
+Please choose an operation:
 
 #""".format(len(products))
 
@@ -35,27 +35,29 @@ with open(csv_file_path, "w") as csv_file:
     for product in products:
         writer.writerow(product)
 
-#chosen_operation = input(menu)
-#chosen_operation = chosen_operation.title()
+chosen_operation = input(menu)
+chosen_operation = chosen_operation.title()
 
-# def list_products():
-    #print("LISTING PRODUCTS")
+def list_products():
+    print("LISTING PRODUCTS")
+    for product in products:
+        print(" + Product #" + str(product["id"]) + ": " + product["name"])
 
-# def show_products():
-    #print("SHOWING A PRODUCT")
+def show_products():
+    print("SHOWING A PRODUCT")
 
-#def create_products():
-    #print("CREATING A PRODUCT")
+def create_products():
+    print("CREATING A PRODUCT")
 
-#def update_products():
-    #print("UPDATING A PRODUCT")
+def update_products():
+    print("UPDATING A PRODUCT")
 
-#def destroy_products():
-    #print("DESTROYING A PRODUCT")
+def destroy_products():
+    print("DESTROYING A PRODUCT")
 
-# if chosen_operation.title() == "List": list_product()
-# elif chosen_operation == "Show": show_products()
-# elif chosen_operation == "Create": create_products()
-# elif chosen_operation == "Update": update_products ()
-# elif chosen_operation == "Destroy": destroy_products ()
-# else: print("Unrecognized Operation. Please choose one of the following: 'List', 'Show', 'Create', 'Update', or 'Destroy'.")
+if chosen_operation.title() == "List": list_products()
+elif chosen_operation == "Show": show_products()
+elif chosen_operation == "Create": create_products()
+elif chosen_operation == "Update": update_products ()
+elif chosen_operation == "Destroy": destroy_products ()
+else: print("Unrecognized Operation. Please choose one of the following: 'List', 'Show', 'Create', 'Update', or 'Destroy'.")
