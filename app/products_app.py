@@ -20,19 +20,13 @@ with open(csv_file_path, "r") as csv_file:
         products.append(dict(ordered_dict))
         #print(row["id"], row["name"])
 
-with open(csv_file_path, "w") as csv_file:
-    writer = csv.DictWriter(csv_file, fieldnames=["id", "name", "aisle", "department", "price"])
-    writer.writeheader() # uses fieldnames set above
-    for product in products:
-        writer.writerow(product)
-
 menu = """
 
 Hello.
 
 Welcome to the products app!
 
-There are {20} products.
+There are """ + str(len(products)) + """ products
 
 Available operations: 'List', 'Show', 'Create', 'Update', 'Destroy'
 
@@ -42,6 +36,8 @@ Please choose an operation:
 
 chosen_operation = input(menu)
 chosen_operation = chosen_operation.title()
+
+#Functions to Handle User Inputs
 
 def list_products():
     print("LISTING PRODUCTS")
@@ -90,3 +86,10 @@ elif chosen_operation == "Create": create_products()
 elif chosen_operation == "Update": update_products()
 elif chosen_operation == "Destroy": destroy_products()
 else: print("Unrecognized Operation. Please choose one of the following: 'List', 'Show', 'Create', 'Update', or 'Destroy'.")
+
+with open(csv_file_path, "w") as csv_file:
+    writer = csv.DictWriter(csv_file, fieldnames=["id", "name", "aisle", "department", "price"])
+    writer.writeheader() # uses fieldnames set above
+
+    for product in products:
+        writer.writerow(product)
